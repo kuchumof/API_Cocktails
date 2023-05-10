@@ -18,14 +18,20 @@
         android:textColor="@color/black"
         android:textSize="30sp" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerView"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cocktailOfDay"
-        android:layout_margin="10dp"
-        android:background="@color/cardview_dark_background" />
+        android:layout_above="@id/Line_1"
+        android:layout_below="@+id/cocktailOfDay">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/grey" />
+    </ScrollView>
+
 
     <LinearLayout
         android:id="@+id/Line_1"
