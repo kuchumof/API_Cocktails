@@ -1,13 +1,10 @@
 package com.example.api_cocktails.activities;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,19 +22,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class FirstLetterActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CocktailAdapter cocktailAdapter;
     private ArrayList<Cocktail> cocktails;
     private RequestQueue requestQueue;
 
-    private Button button_a;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_first_letter);
 
         recyclerView = findViewById(R.id.RecyclerView);
         recyclerView.hasFixedSize();
@@ -49,20 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         getCocktails();
 
-        button_a = findViewById(R.id.button_a);
-        button_a.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FirstLetterActivity.class));
-                finish();
-            }
-        });
 
 
     }
-
     private void getCocktails() {
-        String url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -87,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-                    cocktailAdapter = new CocktailAdapter(MainActivity.this, cocktails);
+                    cocktailAdapter = new CocktailAdapter(FirstLetterActivity.this, cocktails);
                     recyclerView.setAdapter(cocktailAdapter);
 
                 } catch (JSONException e) {
