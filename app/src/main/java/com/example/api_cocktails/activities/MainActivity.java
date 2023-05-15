@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Cocktail> cocktails;
     private RequestQueue requestQueue;
 
-    private Button button_a;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,16 +46,6 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         getCocktails();
-
-        button_a = findViewById(R.id.button_a);
-        button_a.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FirstLetterActivity.class));
-                finish();
-            }
-        });
-
 
     }
 
@@ -102,5 +90,47 @@ public class MainActivity extends AppCompatActivity {
         });
 
         requestQueue.add(request);
+    }
+
+    public void clickLetterButton(View view) {
+
+        switch (view.getId()){
+            case R.id.button_a: openFirstLetterActivity("a"); break;
+            case R.id.button_b: openFirstLetterActivity("b"); break;
+            case R.id.button_c: openFirstLetterActivity("c"); break;
+            case R.id.button_d: openFirstLetterActivity("d"); break;
+            case R.id.button_e: openFirstLetterActivity("e"); break;
+            case R.id.button_f: openFirstLetterActivity("f"); break;
+            case R.id.button_g: openFirstLetterActivity("g"); break;
+            case R.id.button_h: openFirstLetterActivity("h"); break;
+            case R.id.button_i: openFirstLetterActivity("i"); break;
+            case R.id.button_j: openFirstLetterActivity("j"); break;
+            case R.id.button_k: openFirstLetterActivity("k"); break;
+            case R.id.button_l: openFirstLetterActivity("l"); break;
+            case R.id.button_m: openFirstLetterActivity("m"); break;
+            case R.id.button_n: openFirstLetterActivity("n"); break;
+            case R.id.button_o: openFirstLetterActivity("o"); break;
+            case R.id.button_p: openFirstLetterActivity("p"); break;
+            case R.id.button_q: openFirstLetterActivity("q"); break;
+            case R.id.button_r: openFirstLetterActivity("r"); break;
+            case R.id.button_s: openFirstLetterActivity("s"); break;
+            case R.id.button_t: openFirstLetterActivity("t"); break;
+            case R.id.button_u: openFirstLetterActivity("u"); break;
+            case R.id.button_v: openFirstLetterActivity("v"); break;
+            case R.id.button_w: openFirstLetterActivity("w"); break;
+            case R.id.button_x: openFirstLetterActivity("x"); break;
+            case R.id.button_y: openFirstLetterActivity("y"); break;
+            case R.id.button_z: openFirstLetterActivity("z"); break;
+
+        }
+
+
+    }
+
+    private void openFirstLetterActivity(String letter) {
+        Intent intent = new Intent(MainActivity.this, FirstLetterActivity.class);
+        intent.putExtra("letter", letter);
+        startActivity(intent);
+        finish();
     }
 }

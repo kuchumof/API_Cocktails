@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -28,11 +29,16 @@ public class FirstLetterActivity extends AppCompatActivity {
     private CocktailAdapter cocktailAdapter;
     private ArrayList<Cocktail> cocktails;
     private RequestQueue requestQueue;
+    String letter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_letter);
+
+        Intent intent = getIntent();
+        letter = intent.getStringExtra("letter");
+
 
         recyclerView = findViewById(R.id.RecyclerView);
         recyclerView.hasFixedSize();
@@ -45,10 +51,10 @@ public class FirstLetterActivity extends AppCompatActivity {
         getCocktails();
 
 
-
     }
+
     private void getCocktails() {
-        String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
+        String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + letter;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
