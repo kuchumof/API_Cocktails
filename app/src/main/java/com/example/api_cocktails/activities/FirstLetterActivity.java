@@ -95,4 +95,12 @@ public class FirstLetterActivity extends AppCompatActivity {
 
         requestQueue.add(request);
     }
+
+    /**кнопка "назад"*/
+    @Override
+    public void onBackPressed() {
+
+        startActivity(new Intent(FirstLetterActivity.this, MainActivity.class));
+        finish();
+    }
 }
