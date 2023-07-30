@@ -101,49 +101,90 @@ public class FirstLetterActivity extends AppCompatActivity {
                     }
                 });
     }
+// String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + letter;
+private void getCocktails() {
+    String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + letter;
 
-    private void getCocktails() {
-        String url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + letter;
+    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        @Override
+        public void onResponse(JSONObject response) {
+            try {
+                JSONArray jsonArray = response.getJSONArray("drinks");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray jsonArray = response.getJSONArray("drinks");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String title = jsonObject.getString("strDrink");
+                    String pictureUrl = jsonObject.getString("strDrinkThumb");
+                    String category = jsonObject.getString("strCategory");
+                    String instructions = jsonObject.getString("strInstructions");
 
-                        String title = jsonObject.getString("strDrink");
-                        String pictureUrl = jsonObject.getString("strDrinkThumb");
-                        String category = jsonObject.getString("strCategory");
-                        String instructions = jsonObject.getString("strInstructions");
+                    String[] ingredients = new String[15];
+                    String strIngredient1 = jsonObject.getString("strIngredient1");
+                    ingredients[0] = strIngredient1;
+                    String strIngredient2 = jsonObject.getString("strIngredient2");
+                    ingredients[1] = strIngredient2;
+                    String strIngredient3 = jsonObject.getString("strIngredient3");
+                    ingredients[2] = strIngredient3;
+                    String strIngredient4 = jsonObject.getString("strIngredient4");
+                    ingredients[3] = strIngredient4;
+                    String strIngredient5 = jsonObject.getString("strIngredient5");
+                    ingredients[4] = strIngredient5;
+                    String strIngredient6 = jsonObject.getString("strIngredient6");
+                    ingredients[5] = strIngredient6;
+                    String strIngredient7 = jsonObject.getString("strIngredient7");
+                    ingredients[6] = strIngredient7;
+                    String strIngredient8 = jsonObject.getString("strIngredient8");
+                    ingredients[7] = strIngredient8;
+                    String strIngredient9 = jsonObject.getString("strIngredient9");
+                    ingredients[8] = strIngredient9;
+                    String strIngredient10 = jsonObject.getString("strIngredient10");
+                    ingredients[9] = strIngredient10;
+                    String strIngredient11 = jsonObject.getString("strIngredient11");
+                    ingredients[10] = strIngredient11;
+                    String strIngredient12 = jsonObject.getString("strIngredient12");
+                    ingredients[11] = strIngredient12;
+                    String strIngredient13 = jsonObject.getString("strIngredient13");
+                    ingredients[12] = strIngredient13;
+                    String strIngredient14 = jsonObject.getString("strIngredient14");
+                    ingredients[13] = strIngredient14;
+                    String strIngredient15 = jsonObject.getString("strIngredient15");
+                    ingredients[14] = strIngredient15;
 
-                        Cocktail cocktail = new Cocktail();
-                        cocktail.setTitle(title);
-                        cocktail.setPictureUrl(pictureUrl);
-                        cocktail.setCategory(category);
-                        cocktail.setInstructions(instructions);
-
-                        cocktails.add(cocktail);
-
+                    String ingredientAllStr = "Ingredients: " + ingredients[0];
+                    for (int j = 1; j < ingredients.length; j++) {
+                        if (ingredients[j] != "null") {
+                            ingredientAllStr = ingredientAllStr + ", " + ingredients[j];
+                        }
                     }
+                    ingredientAllStr = ingredientAllStr + ".";
 
-                    cocktailAdapter = new CocktailAdapter(FirstLetterActivity.this, cocktails);
-                    recyclerView.setAdapter(cocktailAdapter);
+                    Cocktail cocktail = new Cocktail();
+                    cocktail.setTitle(title);
+                    cocktail.setPictureUrl(pictureUrl);
+                    cocktail.setCategory(category);
+                    cocktail.setInstructions(instructions);
+                    cocktail.setIngredients(ingredientAllStr);
 
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    cocktails.add(cocktail);
+
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
 
-        requestQueue.add(request);
-    }
+                cocktailAdapter = new CocktailAdapter(FirstLetterActivity.this, cocktails);
+                recyclerView.setAdapter(cocktailAdapter);
+
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            error.printStackTrace();
+        }
+    });
+
+    requestQueue.add(request);
+}
 
     /**
      * кнопка "назад"
