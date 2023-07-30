@@ -18,6 +18,11 @@ import com.android.volley.toolbox.Volley;
 import com.example.api_cocktails.R;
 import com.example.api_cocktails.data.CocktailAdapter;
 import com.example.api_cocktails.model.Cocktail;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,10 +37,23 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Cocktail> cocktails;
     private RequestQueue requestQueue;
 
+    private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         recyclerView = findViewById(R.id.RecyclerView);
         recyclerView.hasFixedSize();
