@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@drawable/backimage"
     tools:context=".activities.MainActivity">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="Cocktail of the day"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp" />
 
     <ScrollView
@@ -28,8 +28,7 @@
             android:id="@+id/RecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/grey" />
+            android:layout_margin="10dp" />
     </ScrollView>
 
 
@@ -285,17 +284,15 @@
 
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        android:layout_margin="6dp"
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="6dp"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-    </com.google.android.gms.ads.AdView>
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
 
 
 </RelativeLayout>
