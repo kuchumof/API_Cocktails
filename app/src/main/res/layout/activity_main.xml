@@ -226,7 +226,7 @@
         android:id="@+id/Line_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/Line_5"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <Button
@@ -248,13 +248,13 @@
             android:text="T" />
 
         <Button
-            android:id="@+id/button_u"
+            android:id="@+id/button_y"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_weight="1"
             android:onClick="clickLetterButton"
-            android:text="U" />
+            android:text="Y" />
 
         <Button
             android:id="@+id/button_v"
@@ -275,60 +275,6 @@
             android:text="W" />
 
         <Button
-            android:id="@+id/button_x"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:onClick="clickLetterButton"
-            android:text="X" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/Line_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_aa"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:text="aa"
-            android:visibility="invisible" />
-
-        <Button
-            android:id="@+id/button_y"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:onClick="clickLetterButton"
-            android:text="Y" />
-
-        <Button
-            android:id="@+id/button_bb"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:text="bb"
-            android:visibility="invisible" />
-
-        <Button
-            android:id="@+id/button_cc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:text="cc"
-            android:visibility="invisible" />
-
-        <Button
             android:id="@+id/button_z"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -337,17 +283,9 @@
             android:onClick="clickLetterButton"
             android:text="Z" />
 
-        <Button
-            android:id="@+id/button_dd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:text="dd"
-            android:visibility="invisible" />
-
-
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

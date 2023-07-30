@@ -115,10 +115,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button_r: openFirstLetterActivity("r"); break;
             case R.id.button_s: openFirstLetterActivity("s"); break;
             case R.id.button_t: openFirstLetterActivity("t"); break;
-            case R.id.button_u: openFirstLetterActivity("u"); break;
             case R.id.button_v: openFirstLetterActivity("v"); break;
             case R.id.button_w: openFirstLetterActivity("w"); break;
-            case R.id.button_x: openFirstLetterActivity("x"); break;
             case R.id.button_y: openFirstLetterActivity("y"); break;
             case R.id.button_z: openFirstLetterActivity("z"); break;
 
