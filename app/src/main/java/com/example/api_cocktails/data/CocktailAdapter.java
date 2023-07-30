@@ -40,11 +40,13 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Cockta
         String pictureUrl = currentCocktail.getPictureUrl();
         String category = currentCocktail.getCategory();
         String instructions = currentCocktail.getInstructions();
+        String ingredients = currentCocktail.getIngredients();
 
         holder.titleTextView.setText(title);
         Picasso.get().load(pictureUrl).fit().centerInside().into(holder.pictureImageView);
         holder.categoryTextView.setText(category);
         holder.instructionsTextView.setText(instructions);
+        holder.ingredientTextView.setText(ingredients);
 
 
     }
@@ -61,6 +63,7 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Cockta
         TextView titleTextView;
         TextView categoryTextView;
         TextView instructionsTextView;
+        TextView ingredientTextView;
 
 
         public CocktailViewHolder(@NonNull View itemView) {
@@ -69,6 +72,7 @@ public class CocktailAdapter extends RecyclerView.Adapter<CocktailAdapter.Cockta
             titleTextView = itemView.findViewById(R.id.titleTextView);
             categoryTextView = itemView.findViewById(R.id.categoryTextView);
             instructionsTextView = itemView.findViewById(R.id.instructionsTextView);
+            ingredientTextView = itemView.findViewById(R.id.ingredientTextView);
 
 
         }

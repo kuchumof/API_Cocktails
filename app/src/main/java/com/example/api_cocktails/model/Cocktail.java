@@ -5,8 +5,19 @@ public class Cocktail {
     private String pictureUrl;
     private String category;
     private String instructions;
+    private String ingredients;
+
+
 
     public Cocktail() {
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getTitle() {

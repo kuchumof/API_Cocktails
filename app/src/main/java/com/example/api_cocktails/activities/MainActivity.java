@@ -82,12 +82,14 @@ public class MainActivity extends AppCompatActivity {
                         String pictureUrl = jsonObject.getString("strDrinkThumb");
                         String category = jsonObject.getString("strCategory");
                         String instructions = jsonObject.getString("strInstructions");
+                        String strIngredient1 = jsonObject.getString("strIngredient1");
 
                         Cocktail cocktail = new Cocktail();
                         cocktail.setTitle(title);
                         cocktail.setPictureUrl(pictureUrl);
                         cocktail.setCategory(category);
                         cocktail.setInstructions(instructions);
+                        cocktail.setIngredients(strIngredient1);
 
                         cocktails.add(cocktail);
 
